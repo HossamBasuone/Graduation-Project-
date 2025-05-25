@@ -6,7 +6,7 @@ import { clearData } from "../../../lib/authSlice";
 import { useDispatch } from "react-redux";
 
 export default function Unavbar() {
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);

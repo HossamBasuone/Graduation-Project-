@@ -119,10 +119,10 @@ export default function Page() {
                 onClick={() => setSelectedImage(data.profilePic)}
               />
               <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4 drop-shadow-lg leading-tight">
-                Let's book the next meeting
+                Let&#39;s book the next meeting
               </h1>
               <p className="text-gray-300 text-base sm:text-lg px-2 mb-6 leading-relaxed">
-                Secure our next meeting. Let's continue to shape a successful
+                Secure our next meeting. Let&#39;s continue to shape a successful
                 partnership.
                 <br />
                 Your success is our priority.
@@ -155,7 +155,7 @@ export default function Page() {
             {/* Offers Data */}
             <div className="h-[500px] overflow-y-auto w-full max-w-3xl mx-auto p-4 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md">
               <h1 className="text-center font-bold mb-3 text-[red] border-[#6a4fff] border-2 rounded-2xl">
-                Your offer's
+                Your offer&#39;s
               </h1>
               <div className="grid grid-cols-1 gap-4">
                 {Array.from({ length: Math.ceil(offers.length / 2) }).map(

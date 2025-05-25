@@ -1,10 +1,9 @@
-import React, { use, useEffect, useState } from "react";
+import  {  useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { store } from "../lib/store";
-import { usePathname, useRouter } from "next/navigation";
 
-export function isAuthinticatedPartner() {
-  let { token, role } = useSelector(
+export function IsAuthinticatedPartner() {
+  const { token, role } = useSelector(
     (state: ReturnType<typeof store.getState>) => state.auth
   );
   const [data, setData] = useState(false);
@@ -19,8 +18,8 @@ export function isAuthinticatedPartner() {
  return data;
 }
 
-export function isAuthinticatedUser() {
-  let { token, role } = useSelector(
+export function IsAuthinticatedUser() {
+  const { token, role } = useSelector(
     (state: ReturnType<typeof store.getState>) => state.auth
   );
   const [data, setData] = useState(false);

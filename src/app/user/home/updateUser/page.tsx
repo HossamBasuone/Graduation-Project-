@@ -1,6 +1,5 @@
 "use client";
 import axios from "axios";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -119,7 +118,7 @@ export default function UserProfileUpdate() {
       if (res.data.updatedUser?.profilePic) {
         setProfileImageUrl(res.data.updatedUser.profilePic);
       }
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Something went wrong");
       setApiSuccess("");
     } finally {

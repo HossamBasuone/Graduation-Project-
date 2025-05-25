@@ -5,7 +5,7 @@ import { jwtDecode } from "jwt-decode";
 
 
 
-let initialState: { token: null | string, role:null|string } = {
+const initialState: { token: null | string, role:null|string } = {
   token:  null,
   role:  null,
 };

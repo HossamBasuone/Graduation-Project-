@@ -1,15 +1,12 @@
 "use client";
 import axios from "axios";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { store } from "../../../../lib/store";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 export default function Update() {
-  const router = useRouter();
 
   const token = useSelector(
     (state: ReturnType<typeof store.getState>) => state.auth.token
@@ -108,7 +105,7 @@ export default function Update() {
       if (res.data.updatedPartner?.profilePic) {
         setProfileImageUrl(res.data.updatedPartner.profilePic);
       }
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Something went wrong");
       setApiSuccess("");
     } finally {
@@ -226,10 +223,11 @@ function InputField({
 }: {
   id: string;
   label: string;
-  value: any;
-  onChange: any;
-  onBlur: any;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
+
 }) {
   return (
     <div className="flex flex-col">

@@ -5,10 +5,8 @@ import { useSelector } from "react-redux";
 import { store } from "../../../../lib/store";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useRouter } from "next/navigation";
 
 export default function Create() {
-  const router = useRouter();
 
   const [Data, setData] = useState({
     userName: "",
@@ -126,7 +124,7 @@ price: Yup.number()
       console.log(res)
       setApiSuccess(res.data.message);
       setApiError("");
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Something went wrong");
       setApiSuccess("");
     } finally {
@@ -286,9 +284,9 @@ function InputField({
 }: {
   id: string;
   label: string;
-  value: any;
-  onChange: any;
-  onBlur: any;
+   value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
 }) {
   return (
@@ -325,9 +323,9 @@ function DateField({
 }: {
   id: string;
   label: string;
-  value: any;
-  onChange: any;
-  onBlur: any;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
 }) {
   return (

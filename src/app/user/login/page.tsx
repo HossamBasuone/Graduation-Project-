@@ -30,7 +30,7 @@ export default function LoginUser() {
       );
       dispatch(setToken(res.data.token));
       router.push("/user/home");
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Login failed");
       setIsLoading(false);
     }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
@@ -51,7 +51,7 @@ export default function UpdateOfferPage() {
       setApiMessage("Offer updated successfully!");
       setApiError("");
       console.log(res);
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Something went wrong");
       setApiMessage("");
       console.error(error);
@@ -121,10 +121,11 @@ function InputField({
 }: {
   id: string;
   label: string;
-  value: any;
-  onChange: any;
-  onBlur: any;
+   value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
+
 }) {
   return (
     <div className="relative z-0 w-full group">

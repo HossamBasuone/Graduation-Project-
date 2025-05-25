@@ -2,8 +2,7 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Image from "next/image";
-import logo from "../../../../public/img1.jpg";
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -24,7 +23,7 @@ export default function ResetPartner() {
       console.log(res);
       localStorage.setItem("token", res.data.token);
       router.push("/");
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Reset failed");
     } finally {
       setIsLoading(false);

@@ -2,15 +2,11 @@
 import { useState } from "react";
 import { useFormik } from "formik/dist";
 import * as Yup from "yup";
-import Image from "next/image";
-import logo from "../../../../public/Register To Vote GIF by younginvincibles.gif";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function Registeruser() {
-  const router = useRouter();
   const [apiError, setApiError] = useState("");
   const [apiSuccess, setApiSuccess] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -52,7 +48,7 @@ export default function Registeruser() {
       setApiError("");
       console.log(res);
       // router.push("/");
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message);
       setApiSuccess("");
     } finally {

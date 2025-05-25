@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import logo from "../../../../public/img1.jpg";
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -25,7 +24,7 @@ export default function ForgetPasswordUser() {
       );
       setSuccessMsg(res.data.message);
       setStep(2);
-    } catch (error: any) {
+    } catch (error) {
       setErrorMsg(error.response?.data?.message || "Something went wrong");
     } finally {
       setIsLoading(false);
@@ -36,12 +35,12 @@ export default function ForgetPasswordUser() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const res = await axios.post(
+     await axios.post(
         "http://18.199.172.137:8000/user/verify-code",
         { code: resetCode }
       );
       router.push("/user/reset");
-    } catch (error: any) {
+    } catch (error) {
       setErrorMsg(error.response?.data?.message || "Invalid or expired code");
     } finally {
       setIsLoading(false);

@@ -13,7 +13,7 @@ import { setToken } from "../../../lib/authSlice";
 
 export default function LoginPartner() {
   const dispatch = useDispatch();
-  const [animate, setAnimate] = useState(false);
+  const [, setAnimate] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const [apiError, setApiError] = useState("");
@@ -36,7 +36,7 @@ export default function LoginPartner() {
       localStorage.setItem("token", res.data.token);
       dispatch(setToken(res.data.token));
       router.push("/partner/home");
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message || "Login failed");
       setIsLoading(false);
     }

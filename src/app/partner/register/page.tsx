@@ -5,13 +5,11 @@ import * as Yup from "yup";
 import Image from "next/image";
 import logo from "../../../../public/img1.jpg";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function RegisterPartner() {
-  const router = useRouter();
-  const [apiSuccess, setApiSuccess] = useState("");
+ const [apiSuccess, setApiSuccess] = useState("");
   const [apiError, setApiError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -60,7 +58,7 @@ export default function RegisterPartner() {
       setApiError("");
 
       localStorage.setItem("token", res.data.token);
-    } catch (error: any) {
+    } catch (error) {
       setApiError(error.response?.data?.message);
       setApiSuccess("");
     } finally {

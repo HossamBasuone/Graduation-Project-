@@ -38,7 +38,7 @@ export default function Home() {
             <h3 className="text-3xl font-bold mb-4">Welcome to HealHub</h3>
             <p className="text-gray-600 mb-4">
             HealHub  is a unified platform designed to support individuals in need of medical care or social assistance.
-We believe that everyone deserves quick and easy access to essential services — whether you're dealing with a health concern or facing social challenges. Our mission is to simplify the process of getting help by connecting users with the right resources through a single, easy-to-use application.
+We believe that everyone deserves quick and easy access to essential services — whether you&#39;re dealing with a health concern or facing social challenges. Our mission is to simplify the process of getting help by connecting users with the right resources through a single, easy-to-use application.
 
            </p>
             <p className="text-gray-600">
