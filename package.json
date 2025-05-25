@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && gh-pages -d out",
+      "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "homepage": "https://HossamBasuone.github.io/Graduation-Project-",
     "postinstall": "flowbite-react patch"
   },
