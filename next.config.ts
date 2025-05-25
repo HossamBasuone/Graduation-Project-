@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
-import withFlowbiteReact from "flowbite-react/plugin/nextjs";
+/** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  trailingSlash: true,
+  output: 'export',
+  basePath: '/Graduation-Project-', // 🔁 Change this to your GitHub repo name
+  assetPrefix: isProd ? '/Graduation-Project-/' : '',
 };
 
-export default withFlowbiteReact(nextConfig);
+module.exports = nextConfig;
