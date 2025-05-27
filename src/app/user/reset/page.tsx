@@ -16,7 +16,7 @@ export default function Resetuser() {
     try {
       const { ...userData } = values;
       const res = await axios.put(
-        "http://18.199.172.137:8000/user/update-password",
+        "http://18.194.24.83:8000/user/update-password",
         userData
       );
       console.log(res);

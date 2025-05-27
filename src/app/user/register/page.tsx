@@ -36,7 +36,7 @@ export default function Registeruser() {
 
     try {
       const res = await axios.post(
-        "http://18.199.172.137:8000/user/signup",
+        "http://18.194.24.83:8000/user/signup",
         formData,
         {
           headers: {

@@ -37,7 +37,7 @@ export default function Page() {
 
   async function getData() {
     try {
-      const res = await axios.get("http://18.199.172.137:8000/partner/profile", {
+      const res = await axios.get("http://18.194.24.83:8000/partner/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setData(res.data.partnerData);
@@ -48,7 +48,7 @@ export default function Page() {
 
   async function getoffer() {
     try {
-      const res = await axios.get("http://18.199.172.137:8000/partner/offers", {
+      const res = await axios.get("http://18.194.24.83:8000/partner/offers", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOffers(res.data.unPaidOffers);
@@ -60,7 +60,7 @@ export default function Page() {
   async function delteteoffer(kk: number) {
     try {
       await axios.delete(
-        `http://18.199.172.137:8000/partner/delete-offer/${kk}`,
+        `http://18.194.24.83:8000/partner/delete-offer/${kk}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       getoffer();

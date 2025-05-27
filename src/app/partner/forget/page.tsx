@@ -18,7 +18,7 @@ export default function ForgetPasswordPartner() {
     setErrorMsg("");
     try {
       const res = await axios.post(
-        "http://18.199.172.137:8000/partner/forgot-password",
+        "http://18.194.24.83:8000/partner/forgot-password",
         { partnerEmail: email }
       );
       setSuccessMsg(res.data.message);
@@ -34,7 +34,7 @@ export default function ForgetPasswordPartner() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      await axios.post("http://18.199.172.137:8000/partner/verify-code", {
+      await axios.post("http://18.194.24.83:8000/partner/verify-code", {
         code: resetCode,
       });
       router.push("/partner/reset");

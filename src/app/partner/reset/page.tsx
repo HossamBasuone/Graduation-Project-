@@ -17,7 +17,7 @@ export default function ResetPartner() {
     try {
       const { newPassword } = values;
       const res = await axios.put(
-        "http://18.199.172.137:8000/partner/update-password",
+        "http://18.194.24.83:8000/partner/update-password",
         { newPassword }
       );
       console.log(res);

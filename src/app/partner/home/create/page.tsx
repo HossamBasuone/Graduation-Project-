@@ -72,7 +72,7 @@ price: Yup.number()
   async function getData() {
     try {
       const res = await axios.get(
-        "http://18.199.172.137:8000/partner/profile",
+        "http://18.194.24.83:8000/partner/profile",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -111,7 +111,7 @@ price: Yup.number()
       }
 
       const res = await axios.post(
-        "http://18.199.172.137:8000/partner/offer",
+        "http://18.194.24.83:8000/partner/offer",
         formData,
         {
           headers: {

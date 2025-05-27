@@ -49,7 +49,7 @@ export default function Update() {
   async function getPartnerData() {
     try {
       const res = await axios.get(
-        "http://18.199.172.137:8000/partner/profile",
+        "http://18.194.24.83:8000/partner/profile",
         {
           headers: {
             Authorization:` Bearer ${token}`,
@@ -90,7 +90,7 @@ export default function Update() {
       }
 
       const res = await axios.put(
-        "http://18.199.172.137:8000/partner/update-profile",
+        "http://18.194.24.83:8000/partner/update-profile",
         formData,
         {
           headers: {

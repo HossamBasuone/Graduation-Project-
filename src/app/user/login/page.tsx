@@ -25,7 +25,7 @@ export default function LoginUser() {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        "http://18.199.172.137:8000/user/signin",
+        "http://18.194.24.83:8000/user/signin",
         values
       );
       dispatch(setToken(res.data.token));

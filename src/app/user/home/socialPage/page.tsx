@@ -25,7 +25,7 @@ export default function FreelancersPage() {
   async function getOffers() {
     try {
       const res = await axios.get(
-        "http://18.199.172.137:8000/partner/freelancer-offers"
+        "http://18.194.24.83:8000/partner/freelancer-offers"
       );
       setData(res.data);
     } catch (err) {
@@ -41,7 +41,7 @@ export default function FreelancersPage() {
     <div className="min-h-screen bg-[#0d1b2a] px-4 py-8">
       {data && (
         <h1 className="text-3xl font-bold text-center text-white mb-10">
-          {data.message}
+          Social Offers
         </h1>
       )}
 
@@ -93,7 +93,7 @@ export default function FreelancersPage() {
               <p className="text-xs text-gray-400 mt-2">Freelancer offer</p>
             </div>
           </div>
-        ))}
+        ))}: <h2 className="text-4xl font-black text-white">We currently don&#39;t have offers Yet</h2>
       </div>
 
       {/* Modal for image zoom */}

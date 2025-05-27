@@ -29,7 +29,7 @@ export default function ProductDetailsPage() {
   async function getData() {
     try {
       const res = await axios.get(
-     `   http://18.199.172.137:8000/partner/single-offer/${id}`,
+     `http://18.194.24.83:8000/partner/single-offer/${id}`,
         { headers: { Authorization:` Bearer ${token}` } }
       );
       setData(res.data.partnerOffer);
@@ -45,9 +45,9 @@ export default function ProductDetailsPage() {
   async function pay(id: number) {
     try {
       const res = await axios.post(
-       ` http://18.199.172.137:8000/payment/checkout/${id}`,
+       ` http://18.194.24.83:8000/payment/checkout/${id}`,
         {},
-        { headers: { Authorization: ` `} }
+        { headers: { Authorization:` Bearer ${token}`} }
       );
       window.location.href = res.data.url;
     } catch (err) {

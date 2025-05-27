@@ -60,7 +60,7 @@ export default function UserProfileUpdate() {
 
   async function fetchUserProfile() {
     try {
-      const res = await axios.get("http://18.199.172.137:8000/user/profile", {
+      const res = await axios.get("http://18.194.24.83:8000/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -103,7 +103,7 @@ export default function UserProfileUpdate() {
       }
 
       const res = await axios.put(
-        "http://18.199.172.137:8000/user/update-profile",
+        "http://18.194.24.83:8000/user/update-profile",
         formData,
         {
           headers: {

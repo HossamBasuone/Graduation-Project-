@@ -73,7 +73,7 @@ export default function Unavbar() {
               <Link
                 href="/user/home"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/user/home")
+                  isActive("/user/home/")
                     ? "text-green-400 font-bold"
                     : "text-white hover:text-black"
                 }`}
@@ -85,7 +85,7 @@ export default function Unavbar() {
               <Link
                 href="/user/home/healthPage"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/user/home/healthPage")
+                  isActive("/user/home/healthPage/")
                     ? "text-green-400 font-bold"
                     : "text-white hover:text-black"
                 }`}
@@ -97,7 +97,7 @@ export default function Unavbar() {
               <Link
                 href="/user/home/socialPage"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/user/home/socialPage")
+                  isActive("/user/home/socialPage/")
                     ? "text-green-400 font-bold"
                     : "text-white hover:text-black"
                 }`}
@@ -109,7 +109,7 @@ export default function Unavbar() {
               <Link
                 href="/user/home/updateUser"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/user/home/updateUser")
+                  isActive("/user/home/updateUser/")
                     ? "text-green-400 font-bold"
                     : "text-white hover:text-black"
                 }`}
@@ -121,7 +121,7 @@ export default function Unavbar() {
               <Link
                 href="/user/home/appointment"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/user/home/appointment")
+                  isActive("/user/home/appointment/")
                     ? "text-green-400 font-bold"
                     : "text-white hover:text-black"
                 }`}

@@ -73,8 +73,8 @@ export default function Pnavbar() {
               <Link
                 href="/partner/home"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/partner/home")
-                    ? "text-blue-400 font-bold"
+                  isActive("/partner/home/")
+                    ? "text-blue-800 font-bold"
                     : "text-white hover:text-black"
                 }`}
               >
@@ -85,7 +85,7 @@ export default function Pnavbar() {
               <Link
                 href="/partner/home/create"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/partner/home/create")
+                  isActive("/partner/home/create/")
                     ? "text-blue-400 font-bold"
                     : "text-white hover:text-black"
                 }`}
@@ -97,7 +97,7 @@ export default function Pnavbar() {
               <Link
                 href="/partner/home/appointments"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/partner/home/appointments")
+                  isActive("/partner/home/appointments/")
                     ? "text-blue-400 font-bold"
                     : "text-white hover:text-black"
                 }`}
@@ -109,7 +109,7 @@ export default function Pnavbar() {
               <Link
                 href="/partner/home/updatePartner"
                 className={`block py-2 px-3 rounded-sm md:p-0 ${
-                  isActive("/partner/home/updatePartner")
+                  isActive("/partner/home/updatePartner/")
                     ? "text-blue-400 font-bold"
                     : "text-white hover:text-black"
                 }`}              >

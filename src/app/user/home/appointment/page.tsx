@@ -24,6 +24,7 @@ interface Appointment {
   sessionId: string;
   status: string;
   updatedAt: string;
+  title:string;
   userId: number;
 }
 
@@ -39,7 +40,7 @@ export default function Page() {
   async function show() {
     try {
       const res = await axios.get(
-        "http://18.199.172.137:8000/user/appointments",
+        "http://18.194.24.83:8000/user/appointments",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -58,6 +59,7 @@ export default function Page() {
 
   return (
     <div className="p-6 bg-gray-900 min-h-screen text-gray-100">
+    
       <h1 className="text-3xl font-bold mb-6 text-cyan-400">
         🗓 Your Appointments
       </h1>
@@ -78,9 +80,16 @@ export default function Page() {
                 onClick={() => setModalImage(appointment.partnerOffer.profileImage)}
               />
               <div className="space-y-2">
+
+                    <h1  className="font-semibold text-2xl">
+                <span className="text-[#3d5a80]">🩺</span>{" "}
+                {appointment.partnerOffer.title}
+              </h1>
                 <h2 className="text-xl font-semibold text-cyan-300">
                   {appointment.partnerOffer.userName}
                 </h2>
+                
+                
                 <p className="text-sm text-gray-400">
                   <span className="text-cyan-400 font-medium">Address:</span>{" "}
                   {appointment.partnerOffer.address}
@@ -135,12 +144,11 @@ export default function Page() {
                 </div>
               </div>
             </div>
-          ))}
+          ))}: <h1> You don&#39;t put any thing yet</h1>
         </div>
       )}
 
-      {/* Modal تكبير الصورة */}
-       {modalImage && (
+\       {modalImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setModalImage(null)}

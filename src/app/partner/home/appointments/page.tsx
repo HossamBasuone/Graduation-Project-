@@ -53,7 +53,7 @@ export default function Page() {
     setLoading(true);
     try {
       const res = await axios.get(
-        "http://18.199.172.137:8000/partner/appointments",
+        "http://18.194.24.83:8000/partner/appointments",
         { headers: { Authorization:` Bearer ${token} `} }
       );
       setAppointments(res.data.appointments);

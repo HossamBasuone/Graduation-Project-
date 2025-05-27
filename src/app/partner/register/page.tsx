@@ -45,7 +45,7 @@ export default function RegisterPartner() {
       }
 
       const res = await axios.post(
-        "http://18.199.172.137:8000/partner/signup",
+        "http://18.194.24.83:8000/partner/signup",
         formData,
         {
           headers: {

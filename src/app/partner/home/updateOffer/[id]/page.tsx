@@ -39,7 +39,7 @@ export default function UpdateOfferPage() {
   }) {
     try {
       const res = await axios.put(
-        `http://18.199.172.137:8000/partner/update-offer/${id}`,
+        `http://18.194.24.83:8000/partner/update-offer/${id}`,
         values, // values in request body
         {
           headers: {
