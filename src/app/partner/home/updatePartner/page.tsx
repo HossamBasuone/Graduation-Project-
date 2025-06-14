@@ -7,7 +7,6 @@ import { useFormik } from "formik";
 import { useSelector } from "react-redux";
 
 export default function Update() {
-
   const token = useSelector(
     (state: ReturnType<typeof store.getState>) => state.auth.token
   );
@@ -48,14 +47,11 @@ export default function Update() {
 
   async function getPartnerData() {
     try {
-      const res = await axios.get(
-        "http://18.194.24.83:8000/partner/profile",
-        {
-          headers: {
-            Authorization:` Bearer ${token}`,
-          },
-        }
-      );
+      const res = await axios.get("http://18.192.104.13:8000/partner/profile", {
+        headers: {
+          Authorization: ` Bearer ${token}`,
+        },
+      });
 
       const data = res.data.partnerData;
       formik.setValues({
@@ -90,11 +86,11 @@ export default function Update() {
       }
 
       const res = await axios.put(
-        "http://18.194.24.83:8000/partner/update-profile",
+        "http://18.192.104.13:8000/partner/update-profile",
         formData,
         {
           headers: {
-            Authorization:` Bearer ${token}`,
+            Authorization: ` Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
         }
@@ -123,7 +119,7 @@ export default function Update() {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage:` url('/bg_create.jpg')` }}
+      style={{ backgroundImage: ` url('/bg_create.jpg')` }}
     >
       <div className="bg-[#0f172a]/80 p-10 rounded-2xl shadow-xl w-full max-w-xl text-white">
         <h1 className="text-3xl font-bold mb-8 text-center">
@@ -227,7 +223,6 @@ function InputField({
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
-
 }) {
   return (
     <div className="flex flex-col">

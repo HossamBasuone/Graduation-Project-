@@ -37,7 +37,7 @@ export default function Page() {
 
   async function getData() {
     try {
-      const res = await axios.get("http://18.194.24.83:8000/partner/profile", {
+      const res = await axios.get("http://18.192.104.13:8000/partner/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setData(res.data.partnerData);
@@ -48,7 +48,7 @@ export default function Page() {
 
   async function getoffer() {
     try {
-      const res = await axios.get("http://18.194.24.83:8000/partner/offers", {
+      const res = await axios.get("http://18.192.104.13:8000/partner/offers", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOffers(res.data.unPaidOffers);
@@ -60,7 +60,7 @@ export default function Page() {
   async function delteteoffer(kk: number) {
     try {
       await axios.delete(
-        `http://18.194.24.83:8000/partner/delete-offer/${kk}`,
+        `http://18.192.104.13:8000/partner/delete-offer/${kk}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       getoffer();
@@ -79,28 +79,27 @@ export default function Page() {
   return (
     <>
       {/* Image Modal */}
- {selectedImage && (
-  <div
-    className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
-    onClick={() => setSelectedImage(null)}
-  >
-    {/* Close Button */}
-    <button
-      onClick={() => setSelectedImage(null)}
-      className="absolute top-5 right-5 cursor-pointer text-white text-3xl font-bold bg-black bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center z-50"
-    >
-      ×
-    </button>
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-5 right-5 cursor-pointer text-white text-3xl font-bold bg-black bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center z-50"
+          >
+            ×
+          </button>
 
-    <img
-      src={selectedImage}
-      alt="Full View"
-      className="max-w-full max-h-full rounded-xl shadow-2xl"
-      onClick={(e) => e.stopPropagation()}
-    />
-  </div>
-)}
-
+          <img
+            src={selectedImage}
+            alt="Full View"
+            className="max-w-full max-h-full rounded-xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       {data && offers && (
         <div
@@ -122,8 +121,8 @@ export default function Page() {
                 Let&#39;s book the next meeting
               </h1>
               <p className="text-gray-300 text-base sm:text-lg px-2 mb-6 leading-relaxed">
-                Secure our next meeting. Let&#39;s continue to shape a successful
-                partnership.
+                Secure our next meeting. Let&#39;s continue to shape a
+                successful partnership.
                 <br />
                 Your success is our priority.
               </p>
@@ -142,14 +141,18 @@ export default function Page() {
                   {data.phone}
                 </p>
                 <p>
-                  <span className="font-bold text-purple-300">Description:</span>{" "}
+                  <span className="font-bold text-purple-300">
+                    Description:
+                  </span>{" "}
                   {data.description}
                 </p>
               </div>
 
-              <button className="mt-8 mb-3 bg-[#7B61FF] hover:bg-[#6a4fff] transition-all text-white font-semibold py-3 px-10 rounded-full shadow-xl text-base sm:text-lg">
-                Book a call
-              </button>
+              <Link href={"/partner/home/create"}>
+                <button className="mt-8 mb-3 bg-[#7B61FF] hover:bg-[#6a4fff] transition-all text-white font-semibold py-3 px-10 rounded-full shadow-xl text-base sm:text-lg">
+                  create offer
+                </button>
+              </Link>
             </div>
 
             {/* Offers Data */}
@@ -157,52 +160,64 @@ export default function Page() {
               <h1 className="text-center font-bold mb-3 text-[red] border-[#6a4fff] border-2 rounded-2xl">
                 Your offer&#39;s
               </h1>
-              <div className="grid grid-cols-1 gap-4">
-                {Array.from({ length: Math.ceil(offers.length / 2) }).map(
-                  (_, index) => (
-                    <div
-                      key={index}
-                      className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                    >
-                      {[offers[index * 2], offers[index * 2 + 1]]
-                        .filter(Boolean)
-                        .map((product) => (
-                          <div
-                            key={product.id}
-                            className="bg-white/10 p-4 rounded-xl shadow-md text-white space-y-2"
-                          >
-                            <img
-                              src={product.profileImage}
-                              alt=""
-                              className="w-full h-32 object-cover rounded-md mb-2 cursor-pointer"
-                              onClick={() => setSelectedImage(product.profileImage)}
-                            />
-                            <h1 className="font-bold text-purple-300">
-                              ID: {product.id}
-                            </h1>
-                            <p className="text-sm">{product.date}</p>
-                            <h2 className="text-lg font-semibold">
-                              {product.title}
-                            </h2>
-                            <div className="flex justify-between">
-                              <button
-                                className="bg-red-600 hover:bg-red-700 cursor-pointer text-white px-3 py-1 rounded mt-2"
-                                onClick={() => delteteoffer(product.id)}
-                              >
-                                Clear
-                              </button>
-                              <Link href={`/partner/home/updateOffer/${product.id}`}>
-                                <button className="bg-yellow-400 hover:bg-yellow-500 cursor-pointer text-white px-3 py-1 rounded mt-2">
-                                  Update
+
+              {offers.length === 0 ? (
+                <h1 className="text-center font-black text-2xl text-white ">
+                  {" "}
+                  You don&#39;t put any thing yet
+                </h1>
+              ) : (
+                <div className="grid grid-cols-1 gap-4">
+                  {Array.from({ length: Math.ceil(offers.length / 2) }).map(
+                    (_, index) => (
+                      <div
+                        key={index}
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                      >
+                        {[offers[index * 2], offers[index * 2 + 1]]
+                          .filter(Boolean)
+                          .map((product) => (
+                            <div
+                              key={product.id}
+                              className="bg-white/10 p-4 rounded-xl shadow-md text-white space-y-2"
+                            >
+                              <img
+                                src={product.profileImage}
+                                alt=""
+                                className="w-full h-32 object-cover rounded-md mb-2 cursor-pointer"
+                                onClick={() =>
+                                  setSelectedImage(product.profileImage)
+                                }
+                              />
+                              <h1 className="font-bold text-purple-300">
+                                Price: {product.price} LE
+                              </h1>
+                              <p className="text-sm">{product.date}</p>
+                              <h2 className="text-lg font-semibold">
+                                {product.title}
+                              </h2>
+                              <div className="flex justify-between">
+                                <button
+                                  className="bg-red-600 hover:bg-red-700 cursor-pointer text-white px-3 py-1 rounded mt-2"
+                                  onClick={() => delteteoffer(product.id)}
+                                >
+                                  Clear
                                 </button>
-                              </Link>
+                                <Link
+                                  href={`/partner/home/updateOffer/${product.id}`}
+                                >
+                                  <button className="bg-yellow-400 hover:bg-yellow-500 cursor-pointer text-white px-3 py-1 rounded mt-2">
+                                    Update
+                                  </button>
+                                </Link>
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                    </div>
-                  )
-                )}
-              </div>
+                          ))}
+                      </div>
+                    )
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

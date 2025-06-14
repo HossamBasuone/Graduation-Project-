@@ -19,7 +19,7 @@ export default function ForgetPasswordUser() {
     setErrorMsg("");
     try {
       const res = await axios.post(
-        "http://18.194.24.83:8000/user/forgot-password",
+        "http://18.192.104.13:8000/user/forgot-password",
         { userEmail: email }
       );
       setSuccessMsg(res.data.message);
@@ -35,10 +35,9 @@ export default function ForgetPasswordUser() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-     await axios.post(
-        "http://18.194.24.83:8000/user/verify-code",
-        { code: resetCode }
-      );
+      await axios.post("http://18.192.104.13:8000/user/verify-code", {
+        code: resetCode,
+      });
       router.push("/user/reset");
     } catch (error) {
       setErrorMsg(error.response?.data?.message || "Invalid or expired code");
@@ -53,11 +52,13 @@ export default function ForgetPasswordUser() {
         {/* Left Side: Image and Text */}
         <div className="w-full md:w-1/2 relative p-8 flex flex-col justify-between">
           <div className="flex items-center mb-8">
-            <h2 className="text-white text-2xl font-bold"> <span className="text-green-500">Heal</span>
-            <span className="text-blue-500">Hub</span></h2>
+            <h2 className="text-white text-2xl font-bold">
+              {" "}
+              <span className="text-green-500">Heal</span>
+              <span className="text-blue-500">Hub</span>
+            </h2>
             <div className="ml-auto  font-bold py-1 px-4 rounded-full">
-                        <img src="/health-_1_.ico" className="h-10" alt="Logo" />
-
+              <img src="/health-_1_.ico" className="h-10" alt="Logo" />
             </div>
           </div>
 
@@ -65,17 +66,21 @@ export default function ForgetPasswordUser() {
             <div className="relative size-2/3">
               <div className="text-center">
                 <div className="">
-                 
-<img src="/forgot-password.png" className=" w-full relative" alt="Forgot password illustration" />
+                  <img
+                    src="/forgot-password.png"
+                    className=" w-full relative"
+                    alt="Forgot password illustration"
+                  />
                 </div>
               </div>
             </div>
           </div>
 
           <p className="text-white  text-lg">
-           You can change your password by entering your email address.<br/>
-You will then receive a verification code. <br/>
-Enter the code to proceed with resetting your password.
+            You can change your password by entering your email address.
+            <br />
+            You will then receive a verification code. <br />
+            Enter the code to proceed with resetting your password.
           </p>
         </div>
 

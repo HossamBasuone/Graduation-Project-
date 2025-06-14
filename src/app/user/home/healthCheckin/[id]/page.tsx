@@ -29,8 +29,8 @@ export default function ProductDetailsPage() {
   async function getData() {
     try {
       const res = await axios.get(
-     `http://18.194.24.83:8000/partner/single-offer/${id}`,
-        { headers: { Authorization:` Bearer ${token}` } }
+        `http://18.192.104.13:8000/partner/single-offer/${id}`,
+        { headers: { Authorization: ` Bearer ${token}` } }
       );
       setData(res.data.partnerOffer);
     } catch (err) {
@@ -45,9 +45,9 @@ export default function ProductDetailsPage() {
   async function pay(id: number) {
     try {
       const res = await axios.post(
-       ` http://18.194.24.83:8000/payment/checkout/${id}`,
+        ` http://18.192.104.13:8000/payment/checkout/${id}`,
         {},
-        { headers: { Authorization:` Bearer ${token}`} }
+        { headers: { Authorization: ` Bearer ${token}` } }
       );
       window.location.href = res.data.url;
     } catch (err) {
@@ -80,7 +80,8 @@ export default function ProductDetailsPage() {
                 <span className="font-semibold">📞 Phone:</span> {data.phone}
               </p>
               <p className="text-sm">
-                <span className="font-semibold">📍 Address:</span> {data.address}
+                <span className="font-semibold">📍 Address:</span>{" "}
+                {data.address}
               </p>
               <p className="text-sm">
                 <span className="font-semibold">📅 Created At:</span>{" "}

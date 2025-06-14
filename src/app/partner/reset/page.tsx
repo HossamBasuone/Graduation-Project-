@@ -17,7 +17,7 @@ export default function ResetPartner() {
     try {
       const { newPassword } = values;
       const res = await axios.put(
-        "http://18.194.24.83:8000/partner/update-password",
+        "http://18.192.104.13:8000/partner/update-password",
         { newPassword }
       );
       console.log(res);
@@ -57,12 +57,9 @@ export default function ResetPartner() {
       <div className="m-auto w-full max-w-5xl flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-2xl">
         {/* Left side - Brand panel */}
         <div className="bg-gradient-to-br from-indigo-900 to-indigo-500 text-white w-full lg:w-1/2 p-12 flex flex-col items-center justify-center relative">
-        
-              <div className="mb-8 flex justify-center">
-               
-                          <img src="/health-_1_.ico" className="h-15" alt="Logo" />
-
-              </div>
+          <div className="mb-8 flex justify-center">
+            <img src="/health-_1_.ico" className="h-15" alt="Logo" />
+          </div>
           <Link href={"/"}>
             <h5 className="my-3 text-3xl font-bold p-2 rounded-3xl bg-black text-center">
               <span className="text-green-500">Heal</span>

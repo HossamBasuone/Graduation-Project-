@@ -53,8 +53,8 @@ export default function Page() {
     setLoading(true);
     try {
       const res = await axios.get(
-        "http://18.194.24.83:8000/partner/appointments",
-        { headers: { Authorization:` Bearer ${token} `} }
+        "http://18.192.104.13:8000/partner/appointments",
+        { headers: { Authorization: ` Bearer ${token} ` } }
       );
       setAppointments(res.data.appointments);
     } catch (err) {
@@ -162,32 +162,31 @@ export default function Page() {
       )}
 
       {/* المودال لتكبير الصورة */}
-     {/* Image Preview Modal with Close X */}
-{previewImage && (
-  <div
-    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-    onClick={() => setPreviewImage(null)}
-  >
-    {/* Close Button */}
-    <button
-      className="absolute top-5 right-5 text-white text-3xl cursor-pointer font-bold bg-black bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center z-50"
-      onClick={(e) => {
-        e.stopPropagation();
-        setPreviewImage(null);
-      }}
-    >
-      ×
-    </button>
+      {/* Image Preview Modal with Close X */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setPreviewImage(null)}
+        >
+          {/* Close Button */}
+          <button
+            className="absolute top-5 right-5 text-white text-3xl cursor-pointer font-bold bg-black bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center z-50"
+            onClick={(e) => {
+              e.stopPropagation();
+              setPreviewImage(null);
+            }}
+          >
+            ×
+          </button>
 
-    <img
-      src={previewImage}
-      alt="Preview"
-      className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl"
-      onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
-    />
-  </div>
-)}
-
+          <img
+            src={previewImage}
+            alt="Preview"
+            className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+          />
+        </div>
+      )}
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function LoginUser() {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        "http://18.194.24.83:8000/user/signin",
+        "http://18.192.104.13:8000/user/signin",
         values
       );
       dispatch(setToken(res.data.token));
@@ -76,15 +76,14 @@ export default function LoginUser() {
 
           <p className="text-lg text-center">
             Discover the power of personalized health <br />
-            insights and seamless tracking with  <span className="text-green-500">Heal</span>
+            insights and seamless tracking with{" "}
+            <span className="text-green-500">Heal</span>
             <span className="text-blue-500">Hub</span>.
           </p>
         </div>
 
         {/* Right side: Login form */}
         <div className="w-full lg:w-1/2 p-6 sm:p-8 flex flex-col justify-center relative">
-       
-
           <div className="w-full max-w-md mx-auto">
             {apiError && (
               <div className="w-full bg-red-500 text-white text-center p-3 mb-4 rounded-md font-semibold">
@@ -92,11 +91,17 @@ export default function LoginUser() {
               </div>
             )}
 
-                    <div className="relative mb-6">
-  <Link href={'/'} className="absolute left-0 top-1/2 -translate-y-1/2 text-4xl ">🔙</Link>
-  <h2 className="text-3xl font-bold text-indigo-800 text-center">Log in</h2>
-</div>
-
+            <div className="relative mb-6">
+              <Link
+                href={"/"}
+                className="absolute left-0 top-1/2 -translate-y-1/2 text-4xl "
+              >
+                🔙
+              </Link>
+              <h2 className="text-3xl font-bold text-indigo-800 text-center">
+                Log in
+              </h2>
+            </div>
 
             <form onSubmit={formik.handleSubmit} className="space-y-4">
               <div>
@@ -132,12 +137,11 @@ export default function LoginUser() {
                 >
                   {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                 </div>
-                {formik.touched.userPassword &&
-                  formik.errors.userPassword && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {formik.errors.userPassword}
-                    </p>
-                  )}
+                {formik.touched.userPassword && formik.errors.userPassword && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formik.errors.userPassword}
+                  </p>
+                )}
               </div>
 
               <div>

@@ -30,7 +30,7 @@ export default function LoginPartner() {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        "http://18.194.24.83:8000/partner/signin",
+        "http://18.192.104.13:8000/partner/signin",
         values
       );
       localStorage.setItem("token", res.data.token);
@@ -64,12 +64,12 @@ export default function LoginPartner() {
       <div className="flex w-full max-w-6xl bg-white rounded-3xl shadow-lg overflow-hidden">
         {/* Left side */}
         <div className="hidden md:flex w-1/2 flex-col justify-center items-center bg-gradient-to-r from-indigo-950 to-indigo-600 text-white px-10 py-20">
-<Link href={'/'}> 
-              <h5 className="text-3xl self-start justify-self-start  font-bold p-2 rounded-3xl bg-black my-3">
-        <span className="text-green-500">Heal</span>
-            <span className="text-blue-500">Hub</span>
-        </h5>
-</Link>
+          <Link href={"/"}>
+            <h5 className="text-3xl self-start justify-self-start  font-bold p-2 rounded-3xl bg-black my-3">
+              <span className="text-green-500">Heal</span>
+              <span className="text-blue-500">Hub</span>
+            </h5>
+          </Link>
 
           <Image
             src={logo}
@@ -91,13 +91,17 @@ export default function LoginPartner() {
               {apiError}
             </div>
           )}
-         <div className="relative mb-6">
-  <Link href={'/'} className="absolute left-0 top-1/2 -translate-y-1/2 text-4xl ">🔙</Link>
-  <h2 className="text-3xl font-bold text-indigo-800 text-center">Log in</h2>
-</div>
-
-
-         
+          <div className="relative mb-6">
+            <Link
+              href={"/"}
+              className="absolute left-0 top-1/2 -translate-y-1/2 text-4xl "
+            >
+              🔙
+            </Link>
+            <h2 className="text-3xl font-bold text-indigo-800 text-center">
+              Log in
+            </h2>
+          </div>
 
           <form onSubmit={formik.handleSubmit} className="space-y-6">
             {/* Email */}

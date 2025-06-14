@@ -25,7 +25,7 @@ export default function FreelancersPage() {
   async function getOffers() {
     try {
       const res = await axios.get(
-        "http://18.194.24.83:8000/partner/freelancer-offers"
+        "http://18.192.104.13:8000/partner/freelancer-offers"
       );
       setData(res.data);
     } catch (err) {
@@ -80,7 +80,8 @@ export default function FreelancersPage() {
                 <span className="font-semibold">📅 Date:</span> {product.date}
               </p>
               <p>
-                <span className="font-semibold">💲 Fees:</span> {product.price} LE
+                <span className="font-semibold">💲 Fees:</span> {product.price}{" "}
+                LE
               </p>
             </div>
 
@@ -93,7 +94,11 @@ export default function FreelancersPage() {
               <p className="text-xs text-gray-400 mt-2">Freelancer offer</p>
             </div>
           </div>
-        ))}: <h2 className="text-4xl font-black text-white">We currently don&#39;t have offers Yet</h2>
+        ))}
+        :{" "}
+        <h2 className="text-4xl font-black text-white">
+          We currently don&#39;t have offers Yet
+        </h2>
       </div>
 
       {/* Modal for image zoom */}

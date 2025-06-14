@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 export default function Create() {
-
   const [Data, setData] = useState({
     userName: "",
     phone: "",
@@ -32,7 +31,7 @@ export default function Create() {
     profilePic: File | null;
     price: string;
     date: string;
-    title:string;
+    title: string;
   };
 
   const formik = useFormik<PartnerFormValues>({
@@ -44,7 +43,7 @@ export default function Create() {
       description: "",
       price: "",
       date: "",
-      title:"",
+      title: "",
     },
     validationSchema: Yup.object({
       userName: Yup.string().required("Name is required"),
@@ -55,29 +54,27 @@ export default function Create() {
       description: Yup.string()
         .required("Description is required")
         .min(10, "Description must be at least 10 characters"),
-price: Yup.number()
-  .typeError("Price must be a number")
-  .required("Price is required")
-  .min(25, "Price must be at least 25 EGP"),
+      price: Yup.number()
+        .typeError("Price must be a number")
+        .required("Price is required")
+        .min(25, "Price must be at least 25 EGP"),
       date: Yup.date()
-      .required("Date is required")
-      .min(new Date(Date.now() + 24 * 60 * 60 * 1000), "Date must be in the future"),
-          title:Yup.string()
-        .required("Please Enter Tittle for your  Offer")
-        }),
+        .required("Date is required")
+        .min(
+          new Date(Date.now() + 24 * 60 * 60 * 1000),
+          "Date must be in the future"
+        ),
+      title: Yup.string().required("Please Enter Tittle for your  Offer"),
+    }),
     onSubmit: createAd,
-
   });
 
   async function getData() {
     try {
-      const res = await axios.get(
-        "http://18.194.24.83:8000/partner/profile",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-   
+      const res = await axios.get("http://18.192.104.13:8000/partner/profile", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
       setData(res.data.partnerData);
 
       formik.setFieldValue("userName", res.data.partnerData.userName);
@@ -105,13 +102,13 @@ price: Yup.number()
       formData.append("description", values.description);
       formData.append("price", values.price);
       formData.append("date", values.date);
-      formData.append("title",values.title)
+      formData.append("title", values.title);
       if (values.profilePic) {
         formData.append("profilePic", values.profilePic);
       }
 
       const res = await axios.post(
-        "http://18.194.24.83:8000/partner/offer",
+        "http://18.192.104.13:8000/partner/offer",
         formData,
         {
           headers: {
@@ -121,7 +118,7 @@ price: Yup.number()
         }
       );
 
-      console.log(res)
+      console.log(res);
       setApiSuccess(res.data.message);
       setApiError("");
     } catch (error) {
@@ -284,7 +281,7 @@ function InputField({
 }: {
   id: string;
   label: string;
-   value: string;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
@@ -350,4 +347,3 @@ function DateField({
     </div>
   );
 }
-  

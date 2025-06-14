@@ -9,7 +9,7 @@ import Link from "next/link";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function RegisterPartner() {
- const [apiSuccess, setApiSuccess] = useState("");
+  const [apiSuccess, setApiSuccess] = useState("");
   const [apiError, setApiError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +45,7 @@ export default function RegisterPartner() {
       }
 
       const res = await axios.post(
-        "http://18.194.24.83:8000/partner/signup",
+        "http://18.192.104.13:8000/partner/signup",
         formData,
         {
           headers: {
@@ -113,42 +113,39 @@ export default function RegisterPartner() {
         <div className="flex flex-col lg:flex-row">
           {/* Left: Brand Section */}
           <div className="hidden md:flex w-1/2 relative overflow-hidden">
-        <div className="w-full h-full animate-bgZoomLoop">
-          <Image
-            src={logo}
-            alt="Login background"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
-          
+            <div className="w-full h-full animate-bgZoomLoop">
+              <Image
+                src={logo}
+                alt="Login background"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center">
               <div className="mb-8 flex justify-center ">
-               
-                          <img src="/health-_1_.ico" className="h-15" alt="Logo" />
-
+                <img src="/health-_1_.ico" className="h-15" alt="Logo" />
               </div>
-          <h2 className="text-white text-4xl font-bold text-center px-4">
-            Hello Partner!
-          </h2>
-        </div>
+              <h2 className="text-white text-4xl font-bold text-center px-4">
+                Hello Partner!
+              </h2>
+            </div>
 
-        <style jsx global>{`
-          @keyframes bgZoomLoop {
-            0%,
-            100% {
-              transform: scale(1);
-            }
-            50% {
-              transform: scale(1.2);
-            }
-          }
+            <style jsx global>{`
+              @keyframes bgZoomLoop {
+                0%,
+                100% {
+                  transform: scale(1);
+                }
+                50% {
+                  transform: scale(1.2);
+                }
+              }
 
-          .animate-bgZoomLoop {
-            animation: bgZoomLoop 10s ease-in-out infinite;
-          }
-        `}</style>
-      </div>  
+              .animate-bgZoomLoop {
+                animation: bgZoomLoop 10s ease-in-out infinite;
+              }
+            `}</style>
+          </div>
 
           {/* Right: Form Section */}
           <div className="w-full lg:w-3/5 bg-white p-6 sm:p-8 md:p-10 lg:p-12">

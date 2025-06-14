@@ -18,7 +18,7 @@ export default function ForgetPasswordPartner() {
     setErrorMsg("");
     try {
       const res = await axios.post(
-        "http://18.194.24.83:8000/partner/forgot-password",
+        "http://18.192.104.13:8000/partner/forgot-password",
         { partnerEmail: email }
       );
       setSuccessMsg(res.data.message);
@@ -34,7 +34,7 @@ export default function ForgetPasswordPartner() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      await axios.post("http://18.194.24.83:8000/partner/verify-code", {
+      await axios.post("http://18.192.104.13:8000/partner/verify-code", {
         code: resetCode,
       });
       router.push("/partner/reset");
@@ -56,12 +56,10 @@ export default function ForgetPasswordPartner() {
               <span className="text-blue-500">Hub</span>
             </h5>
           </Link>
-     
-              <div className="mb-8 flex justify-center">
-               
-                          <img src="/health-_1_.ico" className="h-15" alt="Logo" />
 
-              </div>
+          <div className="mb-8 flex justify-center">
+            <img src="/health-_1_.ico" className="h-15" alt="Logo" />
+          </div>
           <p className="text-center text-lg">
             Discover the power of personalized health insights and seamless
             tracking with MediTrack.

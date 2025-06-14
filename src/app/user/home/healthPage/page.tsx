@@ -26,7 +26,7 @@ export default function HealthPage() {
   async function getHealthOffer() {
     try {
       const res = await axios.get(
-        "http://18.194.24.83:8000/partner/health-offers"
+        "http://18.192.104.13:8000/partner/health-offers"
       );
       setData(res.data);
     } catch (err) {
@@ -40,7 +40,6 @@ export default function HealthPage() {
 
   return (
     <div className="min-h-screen bg-[#0d1b2a] px-4 py-8">
-     
       {data && (
         <h1 className="text-3xl font-bold text-center text-white mb-10">
           Health Offers
@@ -62,10 +61,9 @@ export default function HealthPage() {
                 />
               )}
               <div className="flex-1">
-                     <h1  className="font-semibold text-2xl">
-                <span className="text-[#3d5a80]">🩺</span>{" "}
-                {product.title}
-              </h1>
+                <h1 className="font-semibold text-2xl">
+                  <span className="text-[#3d5a80]">🩺</span> {product.title}
+                </h1>
                 <h2 className="text-xl font-semibold text-[#e0e1dd] mb-1">
                   Dr. {product.userName}
                 </h2>
@@ -74,7 +72,6 @@ export default function HealthPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-3 mt-4 text-sm text-[#e0e1dd]">
-         
               <p>
                 <span className="font-semibold">📍 Address:</span>{" "}
                 {product.address}
@@ -86,7 +83,8 @@ export default function HealthPage() {
                 <span className="font-semibold">📅 Date:</span> {product.date}
               </p>
               <p>
-                <span className="font-semibold">💲 Fees:</span> {product.price} LE
+                <span className="font-semibold">💲 Fees:</span> {product.price}{" "}
+                LE
               </p>
             </div>
 
@@ -99,7 +97,11 @@ export default function HealthPage() {
               <p className="text-xs text-gray-400 mt-2">Clinic offer</p>
             </div>
           </div>
-        ))}: <h2 className="text-4xl font-black text-white">We currently don&#39;t have offers Yet</h2>
+        ))}
+        :{" "}
+        <h2 className="text-4xl font-black text-white">
+          We currently don&#39;t have offers Yet
+        </h2>
       </div>
 
       {/* Modal for image zoom */}
@@ -122,7 +124,7 @@ export default function HealthPage() {
             &times;
           </button>
         </div>
-      ) }
+      )}
     </div>
   );
 }

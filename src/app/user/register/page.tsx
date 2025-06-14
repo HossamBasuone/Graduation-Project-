@@ -36,7 +36,7 @@ export default function Registeruser() {
 
     try {
       const res = await axios.post(
-        "http://18.194.24.83:8000/user/signup",
+        "http://18.192.104.13:8000/user/signup",
         formData,
         {
           headers: {
@@ -112,16 +112,13 @@ export default function Registeruser() {
           {/* Left side - Brand & Illustration */}
           <div className="bg-indigo-800 p-8 text-white md:w-1/2 flex flex-col justify-center items-center relative overflow-hidden">
             <div className="relative z-10">
-           
               <div className="mb-8 flex justify-center">
-               
-                          <img src="/health-_1_.ico" className="h-15" alt="Logo" />
-
+                <img src="/health-_1_.ico" className="h-15" alt="Logo" />
               </div>
               <p className="text-lg text-center mb-6">
                 Discover the power of personalized health insights and seamless
-                tracking with  <span className="text-green-500">Heal</span>
-            <span className="text-blue-500">Hub</span>.
+                tracking with <span className="text-green-500">Heal</span>
+                <span className="text-blue-500">Hub</span>.
               </p>
             </div>
 
@@ -138,8 +135,8 @@ export default function Registeruser() {
             <div className="mb-6">
               <h2 className="text-3xl font-bold text-indigo-800">Sign up</h2>
               <p className="text-gray-600 mt-2">
-                Create your  <span className="text-green-500">Heal</span>
-            <span className="text-blue-500">Hub</span> account
+                Create your <span className="text-green-500">Heal</span>
+                <span className="text-blue-500">Hub</span> account
               </p>
             </div>
 
