@@ -27,7 +27,7 @@ export default function Home() {
         <div className="container mx-auto px-6 flex flex-col-reverse lg:flex-row  gap-10">
           <div className="lg:w-1/2 z-10 ">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              We Provide Medical Services That You Can Trust!
+              m4 2wy We Provide Medical Services That You Can Trust!
             </h2>
             <p className="text-lg md:text-xl mb-8">
               We provide the best healthcare for you and your family with the
