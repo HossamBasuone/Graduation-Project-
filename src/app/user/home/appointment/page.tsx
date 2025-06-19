@@ -40,7 +40,7 @@ export default function Page() {
   async function show() {
     try {
       const res = await axios.get(
-        "http://z18.192.104.13:8000/user/appointments",
+        "http://18.192.104.13:8000/user/appointments",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
