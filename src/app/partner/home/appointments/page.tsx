@@ -44,6 +44,7 @@ export default function Page() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const token = useSelector(
     (state: { auth: { token: string } }) => state.auth.token
@@ -54,7 +55,7 @@ export default function Page() {
     try {
       const res = await axios.get(
         "http://18.192.104.13:8000/partner/appointments",
-        { headers: { Authorization: ` Bearer ${token} ` } }
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       setAppointments(res.data.appointments);
     } catch (err) {
@@ -70,12 +71,34 @@ export default function Page() {
     }
   }, [token]);
 
+  // Handle scroll event to toggle scroll-to-top arrow visibility
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (loading) {
-    return <div className="text-center text-white">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-[#0c121c]">
+        <div className="loader" />
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-[#0c121c] p-4 md:p-8 text-white">
+    <div className="min-h-screen bg-[#0c121c] p-4 md:p-8 text-white relative">
       <h1 className="text-3xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
         <span role="img" aria-label="calendar">
           📅
@@ -130,7 +153,6 @@ export default function Page() {
                   {appointment.partnerOffer.description}
                 </p>
 
-                {/* صورة اليوزر لو موجودة */}
                 {appointment.user.profilePic && (
                   <div className="mt-4">
                     <strong className="text-cyan-400">User Image:</strong>
@@ -147,7 +169,6 @@ export default function Page() {
                   </div>
                 )}
 
-                {/* حالة الدفع أو الحجز */}
                 <div className="mt-4">
                   <span className="bg-gray-800 px-3 py-1 rounded-full text-xs font-medium">
                     {appointment.status}
@@ -161,14 +182,11 @@ export default function Page() {
         <p className="text-center text-gray-400">No appointments found.</p>
       )}
 
-      {/* المودال لتكبير الصورة */}
-      {/* Image Preview Modal with Close X */}
       {previewImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
           onClick={() => setPreviewImage(null)}
         >
-          {/* Close Button */}
           <button
             className="absolute top-5 right-5 text-white text-3xl cursor-pointer font-bold bg-black bg-opacity-50 hover:bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center z-50"
             onClick={(e) => {
@@ -183,9 +201,29 @@ export default function Page() {
             src={previewImage}
             alt="Preview"
             className="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
+      )}
+
+      {/* Scroll to Top Arrow */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          className="fixed bottom-8 right-8 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform hover:scale-110"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
       )}
     </div>
   );

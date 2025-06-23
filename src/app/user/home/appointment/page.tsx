@@ -33,14 +33,15 @@ export default function Page() {
     (state: ReturnType<typeof store.getState>) => state.auth.token
   );
   const [appointments, setAppointments] = useState<Appointment[]>([]);
-
-  // حالة الصورة المكبرة (Modal)
   const [modalImage, setModalImage] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
 
   async function show() {
+    setLoading(true);
     try {
       const res = await axios.get(
-        "http://z18.192.104.13:8000/user/appointments",
+        "http://18.192.104.13:8000/user/appointments",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -48,6 +49,8 @@ export default function Page() {
       setAppointments(res.data.appointmentData);
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -57,11 +60,32 @@ export default function Page() {
     }
   }, [token]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-900">
+        <div className="loader" />
+      </div>
+    );
+  }
+
   return (
-    <div className="p-6 bg-gray-900 min-h-screen text-gray-100">
+    <div className="p-6 bg-gray-900 min-h-screen text-gray-100 relative">
       <h1 className="text-3xl font-bold mb-6 text-cyan-400">
         🗓 Your Appointments
       </h1>
+
       {appointments.length === 0 ? (
         <p className="text-gray-400">You have no appointments yet.</p>
       ) : (
@@ -118,24 +142,15 @@ export default function Page() {
                 <div className="mt-3">
                   <span
                     className={`inline-block px-3 py-1 rounded-full text-xs font-semibold
-                    ${
-                      appointment.status === "pending" &&
-                      "bg-yellow-600/20 text-yellow-400"
-                    }
-                    ${
-                      appointment.status === "approved" &&
-                      "bg-green-600/20 text-green-400"
-                    }
-                    ${
-                      appointment.status === "rejected" &&
-                      "bg-red-600/20 text-red-400"
-                    }
-                    ${
-                      !["pending", "approved", "rejected"].includes(
-                        appointment.status
-                      ) && "bg-gray-700 text-gray-300"
-                    }
-                  `}
+                      ${
+                        appointment.status === "pending"
+                          ? "bg-yellow-600/20 text-yellow-400"
+                          : appointment.status === "approved"
+                          ? "bg-green-600/20 text-green-400"
+                          : appointment.status === "rejected"
+                          ? "bg-red-600/20 text-red-400"
+                          : "bg-gray-700 text-gray-300"
+                      }`}
                   >
                     {appointment.status}
                   </span>
@@ -143,10 +158,10 @@ export default function Page() {
               </div>
             </div>
           ))}
-          : <h1> You don&#39;t put any thing yet</h1>
         </div>
       )}
-      \{" "}
+
+      {/* Image Modal */}
       {modalImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -166,6 +181,26 @@ export default function Page() {
             &times;
           </button>
         </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          className="fixed bottom-8 right-8 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform hover:scale-110 z-50"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
       )}
     </div>
   );
