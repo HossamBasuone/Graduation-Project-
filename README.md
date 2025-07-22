@@ -1,14 +1,4 @@
 
-## 🖼️ Project Preview
-
-• Screenshot:  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c3b2993e-ab89-4f18-a64a-ba4b018e4c5a" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1d0493a-67ca-4184-8c6c-0cfaf983c062" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f01668c-39ab-4554-9a31-998c08efd522" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ecc83732-ac44-4410-afda-924909eca3cb" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e411e08e-e386-4c9e-aaf2-113b4fa9a428" />
-
-
 
 🔗 Live Demo: http://16.171.135.186:3000/
 
@@ -18,6 +8,16 @@ I built this front-end from scratch as part of a graduation project, focusing on
 
 ---
 
+## 🖼️ Project Preview
+
+• Screenshot:  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c3b2993e-ab89-4f18-a64a-ba4b018e4c5a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1d0493a-67ca-4184-8c6c-0cfaf983c062" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f01668c-39ab-4554-9a31-998c08efd522" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ecc83732-ac44-4410-afda-924909eca3cb" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e411e08e-e386-4c9e-aaf2-113b4fa9a428" />
+
+---
 ## 🔑 Key Features
 
 • Doctors & hospitals can publish their medical services  
