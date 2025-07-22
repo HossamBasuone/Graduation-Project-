@@ -1,10 +1,13 @@
-# 🏥 HealthHub – A Smart Healthcare Platform
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/051f9c91-3307-4cd2-824d-491ecd3723c3" /><img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5485ed76-8a78-458f-a7b5-ee024a96e0b9" /># 🏥 HealthHub – A Smart Healthcare Platform
 
-<p align="center">
-  <img src="./public/healthhub-preview.png" alt="HealthHub Preview" width="700"/>
-   <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2fa0d62b-301a-4535-a581-efd6ea54819f" />
+## 🖼️ Project Preview
 
-</p>
+• Screenshot:  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2fe46c35-dc6b-42ee-99de-8c92b0961257" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/af35e06d-9ae4-433c-a57d-a53c7bc909da" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c3fa5f9a-5a4c-4e32-9400-473fc691ca1c" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/92c6c81d-a937-4872-aeb8-e940f8d42ff9" />
+
 
 🔗 Live Demo: http://16.171.135.186:3000/
 
@@ -74,3 +77,6 @@ Back-end by teammate (custom API with real database)
 
 ---
 
+## 📬 Contact
+
+If you'd like to collaborate or need a freelance front-end developer, feel free to reach out!
