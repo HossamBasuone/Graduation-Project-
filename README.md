@@ -7,6 +7,8 @@ HealthHub is a modern healthcare web platform that allows doctors, hospitals, an
 I built this front-end from scratch as part of a graduation project, focusing on secure user flows, responsive UI, and modular React architecture.
 
 ---
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e1fbbf02-9bc1-41fa-a476-951fae341ceb" />
+
 
 ## 🔑 Key Features
 
