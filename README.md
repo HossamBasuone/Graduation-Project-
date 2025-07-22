@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏥 HealthHub – A Smart Healthcare Platform
 
-## Getting Started
+🔗 Live Demo: http://16.171.135.186:3000/
 
-First, run the development server:
+HealthHub is a modern healthcare web platform that allows doctors, hospitals, and even freelancers to offer their services online. Built with a clean and accessible UI, the platform is designed especially with older and less tech-savvy users in mind.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I built this front-end from scratch as part of a graduation project, focusing on secure user flows, responsive UI, and modular React architecture.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔑 Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+• Doctors & hospitals can publish their medical services  
+• Freelancers can offer healthcare-related services (e.g., home care, therapy)  
+• Role-based authentication (doctor/patient)  
+• Forgot password with email and phone verification  
+• Mobile-friendly responsive design  
+• Clean UX designed for real users (especially the elderly)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+• Next.js  
+• Tailwind CSS  
+• Redux Toolkit  
+• Axios  
+• Custom React Hooks  
+• Hosted on AWS (works smoothly across all devices)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🚀 Getting Started (For Local Development)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:  
+   git clone https://github.com/your-username/healthhub.git  
+   cd healthhub
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Install dependencies:  
+   npm install
+
+3. Create a `.env.local` file in the root and add your environment variable:  
+   NEXT_PUBLIC_API_BASE_URL=http://your-api-url.com
+
+4. Start the development server:  
+   npm run dev
+
+5. Open your browser at:  
+   http://localhost:3000
+
+---
+
+## 📂 Folder Structure Highlights
+
+• /components → Reusable UI components  
+• /pages → Next.js pages and routing  
+• /hooks → Custom React hooks  
+• /store → Redux Toolkit store and slices  
+• /services → Axios API functions  
+• /styles → Tailwind config and global styles
+
+---
+
+## 👨‍💻 Author
+
+Front-end developed by [Hossam Basuone](https://www.linkedin.com/in/hossam-basuone)  
+Back-end by teammate (custom API with real database)
+
+---
+
+## 📬 Contact
+
+If you'd like to collaborate or need a freelance front-end developer, feel free to reach out!
