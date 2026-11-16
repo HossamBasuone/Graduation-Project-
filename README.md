@@ -1,6 +1,6 @@
 
 
-🔗 Live Demo: http://16.171.135.186:3000/
+
 
 HealthHub is a modern healthcare web platform that allows doctors, hospitals, and even freelancers to offer their services online. Built with a clean and accessible UI, the platform is designed especially with older and less tech-savvy users in mind.
 
